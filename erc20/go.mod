@@ -1,4 +1,4 @@
-module github.com/succinctlabs/gnark-plonky2-verifier
+module erc20
 
 go 1.21
 
