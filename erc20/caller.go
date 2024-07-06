@@ -59,7 +59,7 @@ func main() {
 	ChainId = flag.Int64("chainId", 11155111, "chainId")
 	Network = flag.String("network", "https://eth-sepolia.g.alchemy.com/v2/RH793ZL_pQkZb7KttcWcTlOjPrN0BjOW", "network")
 	HexPrivateKey = flag.String("privateKey", "df4bc5647fdb9600ceb4943d4adff3749956a8512e5707716357b13d5ee687d9", "privateKey")
-	erc20TokenAddr := flag.String("erc20TokenAddr", "0x8199Ac1f2b3ac084cFa3D295341dF5c2C164D601", "erc20TokenAddr")
+	erc20TokenAddr := flag.String("erc20TokenAddr", "0xA234F9049720EDaDF3Ae697eE8bF762f2A03949A", "erc20TokenAddr")
 	proofPath := flag.String("proofPath", "./hardhat/test/snark_proof_with_public_inputs.json", "proofPath")
 	if len(os.Args) < 2 {
 		log.Printf("expected subcommands")
@@ -162,6 +162,7 @@ func mintTokenFromProof(addr string, proofPath string) {
 	}
 	fmt.Printf("Total Supply: %v\n", totalSupply)
 
+	// TODO: Find out way to get the value of ETH from the proof output
 	tx, err := erc20.MintWithProof(authInstance(), common.HexToAddress(os.Args[2]), big.NewInt(1000000000000000000), receipt.proof, receipt.input, receipt.proofCommitment)
 	if err != nil {
 		log.Fatalf("Failed to VerifyProof,err:[%+v]", err)

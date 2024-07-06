@@ -40,8 +40,8 @@
       ]
     },
     "/Users/pavel/Nextcloud/code/use-cases/erc20/hardhat/contracts/verifier.sol": {
-      "lastModificationDate": 1718861444576,
-      "contentHash": "0ff6357ab6e3852744147483ecd414a6",
+      "lastModificationDate": 1720260010525,
+      "contentHash": "9850fdec1c09a64b9de43328145fd193",
       "sourceName": "contracts/verifier.sol",
       "solcConfig": {
         "version": "0.8.0",
