@@ -96,8 +96,8 @@ contract ERC20Token is IERC20 {
     mapping(address => mapping(address => uint)) allowed;
 
     constructor()  {
-        _name = "ERC20 Token";
-        _symbol = "ET";
+        _name = "My Token";
+        _symbol = "MTK";
         _decimals = 18;
         _totalSupply = 0;
         _verifier = new Verifier();

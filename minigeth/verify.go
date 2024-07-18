@@ -35,6 +35,7 @@ func main() {
         log.Fatal("Failed to convert input to bigint")
     }
 	transactionHash := ecommon.HexToHash(os.Args[2])
+	burnAddress := ecommon.HexToAddress("0xdeaDDeADDEaDdeaDdEAddEADDEAdDeadDEADDEaD")
 	
 	flag.Parse()
 
@@ -45,8 +46,12 @@ func main() {
         log.Fatal(err)
     }
 
-	// Get the transaction within the block
-	fmt.Print(block.Transaction(transactionHash).Value())
+	if (*block.Transaction(transactionHash).To() != burnAddress) {
+		log.Fatal("Transaction is not directed to the burn address")
+	}
+
+	// Get the transaction within the block and display the output value in ETH transferred
+	fmt.Printf("Transaction Value: %v", block.Transaction(transactionHash).Value())
 }
 
 
